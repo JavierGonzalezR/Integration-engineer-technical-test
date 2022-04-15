@@ -1,0 +1,110 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib64/
+parts/
+sdist/
+var/
+src/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Installer temp directories
+pip-*/
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage*
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+
+# Sonarqube scan results
+.scannerwork/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# celerybeat
+celerybeat-schedule
+
+# ignore local settings
+shopping/settings/local.py
+shopping/pynamodb/local.py
+
+# IDE Settings
+.idea/
+.vscode/
+.devcontainer/
+
+# Front end tooling
+node_modules/
+
+# ignore ssh keys
+perm_key
+ssh_key.pem
+__data
+__data_bckp
+
+# Pyenv
+.python-version
+
+.DS_Store
+
+collected_static
+
+Pipfile
+Pipfile.lock
+
+requirements-local.txt
+
+*.ipynb
+.ipynb_checkpoints/
+node_modules/
+.mypy_cache/
+
+custom-docker-services.yml
+
+.logstash
+
+
+# ignore Nova app config folder
+.nova
+
+# Ignore tgz charts
+*.tgz

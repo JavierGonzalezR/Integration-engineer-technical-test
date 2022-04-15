@@ -1,0 +1,548 @@
+{
+	"info": {
+		"_postman_id": "4ef0b322-1ea1-4004-abe9-b0e237ee849c",
+		"name": "Cornershop Skill test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get credentials",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/oauth/token?client_id={{cliend_id}}&client_secret={{client_secret}}&grant_type={{grant_type}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "{{cliend_id}}"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{client_secret}}"
+						},
+						{
+							"key": "grant_type",
+							"value": "{{grant_type}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get credentials",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/oauth/token?client_id={{cliend_id}}&client_secret={{client_secret}}&grant_type={{grant_type}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "{{cliend_id}}"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{client_secret}}"
+								},
+								{
+									"key": "grant_type",
+									"value": "{{grant_type}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 04:02:18 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "122"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"YNMjDNyjYjcjTYkiDThN\",\n    \"expires_in\": 2592000,\n    \"refresh_token\": \"zcTjAzTNZyMjYTyYYTYy\",\n    \"token_type\": \"bearer\"\n}"
+				}
+			]
+		},
+		{
+			"name": "ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/ping",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ping",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/ping",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"ping"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 04:02:15 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "4"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "PONG"
+				}
+			]
+		},
+		{
+			"name": "send product data",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"merchant_id\": \"ae9c81fe-163e-4546-8349-19dbf63715c7\",\n    \"sku\": \"6000201734399\",\n    \"barcodes\": [\"62773501448\"],\n    \"brand\": \"Great Value\",\n    \"name\": \"Great Value Pizza Mozzarella Cheese\",\n    \"description\": \"Say yes please to extra cheese at your next pizza night. Made with 100% Canadian milk, Great ValueTM Pizza Mozzarella Cheese is a good source of calcium that’s high in protein, too. This family-sized 400 g block is a great way to create ooey-gooey, extra cheesy, luscious layers of lasagna, and melty masterpieces of pizza pie perfection.\",\n    \"package\": \"400 g\",\n    \"image_url\": \"https://i5.walmartimages.ca/images/Enlarge/014/487/627735014487.jpg\",\n    \"category\": \"Grocery›Dairy & Eggs›Cheese›Cheese Blocks\",\n    \"url\": \"https://www.walmart.ca/en/ip/great-value-pizza-mozzarella-cheese/6000201734398\",\n    \"branch_products\": [{\n    \t\"branch\": \"Heartland Supercentre\",\n    \t\"stock\": 23,\n    \t\"price\": 12.34\n    },\n    {\n    \t\"branch\": \"Heartland Supercentre\",\n    \t\"stock\": -123,\n    \t\"price\": 12.34\n    }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/products",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "send product data",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"merchant_id\": \"ae9c81fe-163e-4546-8349-19dbf63715c7\",\n    \"sku\": \"6000201734399\",\n    \"barcodes\": [\"62773501448\"],\n    \"brand\": \"Great Value\",\n    \"name\": \"Great Value Pizza Mozzarella Cheese\",\n    \"description\": \"Say yes please to extra cheese at your next pizza night. Made with 100% Canadian milk, Great ValueTM Pizza Mozzarella Cheese is a good source of calcium that’s high in protein, too. This family-sized 400 g block is a great way to create ooey-gooey, extra cheesy, luscious layers of lasagna, and melty masterpieces of pizza pie perfection.\",\n    \"package\": \"400 g\",\n    \"image_url\": \"https://i5.walmartimages.ca/images/Enlarge/014/487/627735014487.jpg\",\n    \"category\": \"Grocery›Dairy & Eggs›Cheese›Cheese Blocks\",\n    \"url\": \"https://www.walmart.ca/en/ip/great-value-pizza-mozzarella-cheese/6000201734398\",\n    \"branch_products\": [{\n    \t\"branch\": \"Heartland Supercentre\",\n    \t\"stock\": 23,\n    \t\"price\": 12.34\n    },\n    {\n    \t\"branch\": \"Heartland Supercentre\",\n    \t\"stock\": -123,\n    \t\"price\": 12.34\n    }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/products",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 04:52:41 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "930"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"barcodes\": [\n        \"62773501448\"\n    ],\n    \"branch_products\": [\n        {\n            \"branch\": \"Heartland Supercentre\",\n            \"price\": 12.34,\n            \"stock\": 23\n        },\n        {\n            \"branch\": \"Heartland Supercentre\",\n            \"price\": 12.34,\n            \"stock\": -123\n        }\n    ],\n    \"brand\": \"Great Value\",\n    \"category\": \"Grocery›Dairy & Eggs›Cheese›Cheese Blocks\",\n    \"description\": \"Say yes please to extra cheese at your next pizza night. Made with 100% Canadian milk, Great ValueTM Pizza Mozzarella Cheese is a good source of calcium that’s high in protein, too. This family-sized 400 g block is a great way to create ooey-gooey, extra cheesy, luscious layers of lasagna, and melty masterpieces of pizza pie perfection.\",\n    \"image_url\": \"https://i5.walmartimages.ca/images/Enlarge/014/487/627735014487.jpg\",\n    \"merchant_id\": \"ae9c81fe-163e-4546-8349-19dbf63715c7\",\n    \"name\": \"Great Value Pizza Mozzarella Cheese\",\n    \"package\": \"400 g\",\n    \"sku\": \"6000201734399\",\n    \"url\": \"https://www.walmart.ca/en/ip/great-value-pizza-mozzarella-cheese/6000201734398\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get merchants",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/merchants",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"merchants"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get merchants",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/merchants",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"merchants"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 05:03:52 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "516"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"merchants\": [\n        {\n            \"can_be_deleted\": false,\n            \"can_be_updated\": false,\n            \"id\": \"14f28a01-2bda-42e1-ba3a-57efd8c3d078\",\n            \"is_active\": true,\n            \"name\": \"CKD\"\n        },\n        {\n            \"can_be_deleted\": false,\n            \"can_be_updated\": false,\n            \"id\": \"b5a785d7-d386-4354-bcf5-cb7bdd2d28e5\",\n            \"is_active\": false,\n            \"name\": \"Laider\"\n        },\n        {\n            \"can_be_deleted\": false,\n            \"can_be_updated\": true,\n            \"id\": \"ae9c81fe-163e-4546-8349-19dbf63715c7\",\n            \"is_active\": false,\n            \"name\": \"Richard's\"\n        },\n        {\n            \"can_be_deleted\": true,\n            \"can_be_updated\": false,\n            \"id\": \"9001976c-a9e7-4b95-b133-9ac8ba213fb2\",\n            \"is_active\": true,\n            \"name\": \"Beauty\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "update merchant",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"can_be_deleted\": true,\n    \"can_be_updated\": true,\n    \"id\": \"ae9c81fe-163e-4546-8349-19dbf63715c7\",\n    \"is_active\": false,\n    \"name\": \"test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/merchants/{{merchant_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"merchants",
+						"{{merchant_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "update merchant",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"can_be_deleted\": true,\n    \"can_be_updated\": true,\n    \"id\": \"ae9c81fe-163e-4546-8349-19dbf63715c7\",\n    \"is_active\": false,\n    \"name\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/merchants/{{merchant_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"merchants",
+								"{{merchant_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 05:03:26 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "122"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"can_be_deleted\": true,\n    \"can_be_updated\": true,\n    \"id\": \"ae9c81fe-163e-4546-8349-19dbf63715c7\",\n    \"is_active\": false,\n    \"name\": \"test\"\n}"
+				}
+			]
+		},
+		{
+			"name": "delete merchant",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/merchants/{{merchant_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"merchants",
+						"{{merchant_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "delete merchant",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/merchants/{{merchant_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"merchants",
+								"{{merchant_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/20.0.4"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 03 Dec 2020 05:04:15 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6c691695-176d-45f0-84ee-4ec3752c20fe",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "6aebb3ba-0cd7-40cf-a177-349b58f258c6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

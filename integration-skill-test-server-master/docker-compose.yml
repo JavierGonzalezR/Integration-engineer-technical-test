@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - CLIENT_ID=mRkZGFjM
+      - CLIENT_SECRET=ZGVmMjMz
+      - TOKEN_VALUES=AYjcyMzY3ZDhiNmJkNTY
+      - RICHARD_ID=ae9c81fe-163e-4546-8349-19dbf63715c7
+      - BEAUTY_ID=9001976c-a9e7-4b95-b133-9ac8ba213fb2
